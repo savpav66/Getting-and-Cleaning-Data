@@ -1,6 +1,3 @@
-setwd("C:\\TEMP")
-dir.create("data",showWarnings=FALSE)
-setwd("data")
 
 # check if package is installed
 if (!require("data.table")) {
@@ -14,10 +11,11 @@ if (!require("data.table")) {
 
 
 # STEP 1
-# now download the zip file of the assignment
-# and extract files within
+# check if zip file exists. if not, download it.
+# then unzip.
 
-if( !dir.file("gedata_projectfiles_UCI HAR Dataset-1.zip")) {
+
+if( !file.exists("gedata_projectfiles_UCI HAR Dataset-1.zip")) {
   download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip")
 }
 unzip("gedata_projectfiles_UCI HAR Dataset-1.zip")
