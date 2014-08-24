@@ -32,7 +32,8 @@ data, only the columns selected via the grep, and of course the last two columns
 columns added (the activities id and the subject id) but most of all for performance reasons, we should push the computer to do as little as possible, 
 and it will do less work in the subsetted dataframe. 
 
-6. *(STEP 4 of assignment)*. We need to change the names to be more human-readable. The obvious one is to remove leading 't' or 'f' for all names.
+6. *(STEP 4 of assignment)*. We need to change the names to be more human-readable. Replace leading 't' or 'f' for all names with Time or Frequency,
+and this is needed otherwise we will double names.
 Then to change -mean() or -std() to Mean or Std respectively. Also found that Acc means acceleration and Mag is Magnitude, so change it accordingly.
 Last but not least name the extra two last columns, to Activity and Subject. Make a subset of the data, and name them with the new names.
 

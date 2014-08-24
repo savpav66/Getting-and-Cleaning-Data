@@ -58,14 +58,17 @@ data2<-data[,c(selected,562,563)]
 
 # STEP 4
 # Now change the names in features to more readable ones.
-# 1. remove leading f or t
-# 2. Replace Acc with Acceleration
-# 3. Replace Mag with Magnitude
-# 4. Replace -mean() with Mean
-# 5. Replace -std() with Std
+# 1. Replace leading t with Time
+# 2. Replace leading f with Frequency
+# 3. Replace Acc with Acceleration
+# 4. Replace Mag with Magnitude
+# 5. Replace -mean() with Mean
+# 6. Replace -std() with Std
+
 
 features2<-features[selected,2]
-features2<-gsub("^t|^f","",features2)
+features2<-gsub("^t","Time",features2)
+features2<-gsub("^f","Frequency",features2)
 features2<-gsub("Acc","Acceleration",features2)
 features2<-gsub("Mag","Magnitude",features2)
 features2<-gsub("-mean\\(\\)","Mean",features2)

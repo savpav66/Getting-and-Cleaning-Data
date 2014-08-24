@@ -24,7 +24,8 @@ so we can have a large dataframe with every observation with all variables and f
 * We select (subset) by taking the observations only with the variables (features) that have a -mean measurement or a -std (standard deviation)
 measurement 
 
-* We change the column names used in the data, to be more readable.  The obvious one is to remove leading 't' or 'f' for all names.
+* We change the column names used in the data, to be more readable.  Replace leading 't' or 'f' for all names with Time or Frequency,
+and this is needed otherwise we will double names.
 Then to change -mean() or -std() to Mean or Std respectively. Also found that Acc means Acceleration and Mag is Magnitude, so change it accordingly.
 Last but not least name the extra two last columns, to Activity and Subject. 
 
