@@ -75,7 +75,6 @@ features2[68]<-"Subject"
 
 # Now extract the data wanted and label them
 
-data2<-data[,c(selected,562,563)]
 names(data2)<-features2
 
 # STEP 3
