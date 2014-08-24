@@ -1,27 +1,31 @@
+# By Savvas Pavlidis, 2014
 
-# check if package is installed
+# check if neeeded package is installed
 if (!require("data.table")) {
   # if not, install it
   install.packages("data.table")
   # check again. if not installed now, abort
   if (!require("data.table")) {
     print( "package data.table does not exist, and cannot be installed. Check Internet connection. Program abort")
+    stop
   }
 }
 
 
 # STEP 1
-# check if zip file exists. if not, download it.
-# then unzip.
-
-
-if( !file.exists("gedata_projectfiles_UCI HAR Dataset-1.zip")) {
-  download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip")
+# check if directory with data file exists.
+# if not, check if the zip file exists and if yes then unzip
+# otherwise download it, then unzip
+if (!file.exists("UCI HAR Dataset")) {
+  if( !file.exists("getdata_projectfiles_UCI HAR Dataset.zip")) {
+    download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip",
+                   destfile="getdata_projectfiles_UCI HAR Dataset.zip")
+  }
+  unzip("getdata_projectfiles_UCI HAR Dataset.zip")
 }
-unzip("gedata_projectfiles_UCI HAR Dataset-1.zip")
 
 # the downloaded data are in a directory named
-# "UCI HAR Datashet" inside the data directory
+# "UCI HAR Datashet"
 
 activities<-read.table("./UCI HAR Dataset/activity_labels.txt",col.names=c("id","label"), stringsAsFactors=FALSE)
 features <- read.table("./UCI HAR Dataset/features.txt",stringsAsFactors=FALSE)
